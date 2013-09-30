@@ -12,6 +12,7 @@ App::import('Vendor', 'Paypal.Paypal');
 
 class PayComponent extends Component {
 	
+	//$Receivers = array();
 	// $Receiver = array(
 	// 				'Amount' => '', 											// Required.  Amount to be paid to the receiver.
 	// 				'Email' => '', 												// Receiver's email address. 127 char max.
@@ -21,8 +22,9 @@ class PayComponent extends Component {
 	// 				'Phone' => array('CountryCode' => '', 'PhoneNumber' => '', 'Extension' => ''), // Receiver's phone number.   Numbers only.
 	// 				'Primary' => ''												// Whether this receiver is the primary receiver.  Values are boolean:  TRUE, FALSE
 	// 				);
+	//array_push($Receivers,$Receiver);
 	
-	public function execute($Receiver, $PayRequestFields) {
+	public function execute($Receivers, $PayRequestFields) {
 		
 		// Create PayPal object.
 		// $PayPalConfig = array(
@@ -75,9 +77,10 @@ class PayComponent extends Component {
 								'PartnerName' => ''									// Your organization's name or ID
 								);
 
-		$FundingTypes = array('ECHECK', 'BALANCE', 'CREDITCARD');					// Funding constrainigs require advanced permissions levels.
-
-		$Receivers = array();
+		//$FundingTypes = array('ECHECK', 'BALANCE', 'CREDITCARD');					// Funding constrainigs require advanced permissions levels.
+		$FundingTypes = array('BALANCE', 'CREDITCARD');	
+		
+		//$Receivers = array();
 		// $Receiver = array(
 		// 				'Amount' => '', 											// Required.  Amount to be paid to the receiver.
 		// 				'Email' => '', 												// Receiver's email address. 127 char max.
@@ -87,7 +90,7 @@ class PayComponent extends Component {
 		// 				'Phone' => array('CountryCode' => '', 'PhoneNumber' => '', 'Extension' => ''), // Receiver's phone number.   Numbers only.
 		// 				'Primary' => ''												// Whether this receiver is the primary receiver.  Values are boolean:  TRUE, FALSE
 		// 				);
-		array_push($Receivers,$Receiver);
+		//array_push($Receivers,$Receiver);
 
 		$SenderIdentifierFields = array(
 										'UseCredentials' => ''						// If TRUE, use credentials to identify the sender.  Default is false.
