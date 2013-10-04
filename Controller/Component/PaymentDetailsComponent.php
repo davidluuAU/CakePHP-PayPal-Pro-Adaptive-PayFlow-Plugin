@@ -12,29 +12,37 @@ App::import('Vendor', 'Paypal.Paypal');
 
 class PaymentDetailsComponent extends Component {
 	
-	public function execute() {
+	// $PaymentDetailsFields = array(
+	// 							'PayKey' => '', 							// The pay key that identifies the payment for which you want to retrieve details.  
+	// 							'TransactionID' => '', 						// The PayPal transaction ID associated with the payment.  
+	// 							'TrackingID' => ''							// The tracking ID that was specified for this payment in the PayRequest message.  127 char max.
+	// 							);
+	
+	public function execute($PaymentDetailsFields) {
+							
+		$configuration = new Paypal_Config();
 
 		// Create PayPal object.
 		$PayPalConfig = array(
-							  'Sandbox' => $this->sandbox,
-							  'DeveloperAccountEmail' => $this->developer_account_email,
-							  'ApplicationID' => $this->application_id,
-							  'DeviceID' => $this->device_id,
+							  'Sandbox' => $configuration->sandbox,
+							  'DeveloperAccountEmail' => $configuration->developer_account_email,
+							  'ApplicationID' => $configuration->application_id,
+							  'DeviceID' => $configuration->device_id,
 							  'IPAddress' => $_SERVER['REMOTE_ADDR'],
-							  'APIUsername' => $this->api_username,
-							  'APIPassword' => $this->api_password,
-							  'APISignature' => $this->api_signature,
-							  'APISubject' => $this->api_subject
-							);
-
+							  'APIUsername' => $configuration->api_username,
+							  'APIPassword' => $configuration->api_password,
+							  'APISignature' => $configuration->api_signature,
+							  'APISubject' => $configuration->api_subject
+							);							
+							
 		$PayPal = new PayPal_Adaptive($PayPalConfig);
 
 		// Prepare request arrays
-		$PaymentDetailsFields = array(
-									'PayKey' => '', 							// The pay key that identifies the payment for which you want to retrieve details.  
-									'TransactionID' => '', 						// The PayPal transaction ID associated with the payment.  
-									'TrackingID' => ''							// The tracking ID that was specified for this payment in the PayRequest message.  127 char max.
-									);
+		// $PaymentDetailsFields = array(
+		// 							'PayKey' => '', 							// The pay key that identifies the payment for which you want to retrieve details.  
+		// 							'TransactionID' => '', 						// The PayPal transaction ID associated with the payment.  
+		// 							'TrackingID' => ''							// The tracking ID that was specified for this payment in the PayRequest message.  127 char max.
+		// 							);
 							
 		$PayPalRequestData = array('PaymentDetailsFields' => $PaymentDetailsFields);
 
