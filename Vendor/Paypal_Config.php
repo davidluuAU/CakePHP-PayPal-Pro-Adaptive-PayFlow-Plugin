@@ -68,7 +68,7 @@ class Paypal_Config {
 		$this->payflow_vendor = $this->sandbox ? 'SANDBOX_VENDOR' : 'LIVE_VENDOR';
 		$this->payflow_partner = $this->sandbox ? 'SANDBOX_PARTNER' : 'LIVE_PARTNER';
 		
-		$this->device_ip_address = $_SERVER['REMOTE_ADDR'];
+		$this->device_ip_address = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : "";
 		
 		/**
 		 * Timezone Setting
