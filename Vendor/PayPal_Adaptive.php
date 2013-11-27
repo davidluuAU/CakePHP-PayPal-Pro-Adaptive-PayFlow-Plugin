@@ -51,7 +51,8 @@ class PayPal_Adaptive extends PayPal
 		
 		$this->XMLNamespace = 'http://svcs.paypal.com/types/ap';
 		$this->DeviceID = isset($DataArray['DeviceID']) ? $DataArray['DeviceID'] : '';
-		$this->IPAddress = isset($DataArray['IPAddress']) ? $DataArray['IPAddress'] : $_SERVER['REMOTE_ADDR'];
+		$ipAddress = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : "";
+		$this->IPAddress = isset($DataArray['IPAddress']) ? $DataArray['IPAddress'] : $ipAddress;
 		$this->DetailLevel = isset($DataArray['DetailLevel']) ? $DataArray['DetailLevel'] : 'ReturnAll';
 		$this->ErrorLanguage = isset($DataArray['ErrorLanguage']) ? $DataArray['ErrorLanguage'] : 'en_US';
 		$this->APISubject = isset($DataArray['APISubject']) ? $DataArray['APISubject'] : '';

@@ -44,7 +44,7 @@ class PayComponent extends Component {
 							  'DeveloperAccountEmail' => $configuration->developer_account_email,
 							  'ApplicationID' => $configuration->application_id,
 							  'DeviceID' => $configuration->device_id,
-							  'IPAddress' => $_SERVER['REMOTE_ADDR'],
+							  'IPAddress' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : "",
 							  'APIUsername' => $configuration->api_username,
 							  'APIPassword' => $configuration->api_password,
 							  'APISignature' => $configuration->api_signature,
