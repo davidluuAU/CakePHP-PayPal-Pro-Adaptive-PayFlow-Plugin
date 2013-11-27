@@ -77,8 +77,8 @@ class PayComponent extends Component {
 								'PartnerName' => ''									// Your organization's name or ID
 								);
 
-		//$FundingTypes = array('ECHECK', 'BALANCE', 'CREDITCARD');					// Funding constrainigs require advanced permissions levels.
-		$FundingTypes = array('BALANCE', 'CREDITCARD');	
+		$FundingTypes = array('ECHECK', 'BALANCE', 'CREDITCARD');					// Funding constrainigs require advanced permissions levels.
+		//$FundingTypes = array('BALANCE', 'CREDITCARD');	
 		
 		//$Receivers = array();
 		// $Receiver = array(
