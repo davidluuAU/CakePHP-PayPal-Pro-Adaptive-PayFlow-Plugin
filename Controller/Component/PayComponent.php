@@ -104,7 +104,7 @@ class PayComponent extends Component {
 		$PayPalRequestData = array(
 							'PayRequestFields' => $PayRequestFields, 
 							'ClientDetailsFields' => $ClientDetailsFields, 
-							'FundingTypes' => $FundingTypes, 
+							//'FundingTypes' => $FundingTypes, 
 							'Receivers' => $Receivers, 
 							'SenderIdentifierFields' => $SenderIdentifierFields, 
 							'AccountIdentifierFields' => $AccountIdentifierFields
